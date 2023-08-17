@@ -1,4 +1,4 @@
-from PyQt5.QtCore import Qt
+from PyQt5.Qt import Qt
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout,  QRadioButton, QHBoxLayout
 
 
@@ -29,6 +29,12 @@ hline3.addWidget(radio_btn4, alignment=Qt.AlignCenter)
 line.addLayout(hline1)
 line.addLayout(hline2)
 line.addLayout(hline3)
+
+main_win.setLayout(line)
+main_win.show()
+
+app.exec_()
+
 main_win.setLayout(line)
 main_win.show()
 
