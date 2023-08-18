@@ -1,4 +1,4 @@
-from PyQt5.Qt import Qt
+from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout,  QRadioButton, QHBoxLayout
 
 
@@ -35,10 +35,6 @@ main_win.show()
 
 app.exec_()
 
-main_win.setLayout(line)
-main_win.show()
-
-app.exec_()
 
 a = """
 background-color : yellow;
