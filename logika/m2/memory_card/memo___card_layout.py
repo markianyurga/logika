@@ -43,18 +43,18 @@ layout_ans2.addWidget(r_bt2)
 layout_ans3.addWidget(r_bt3)
 layout_ans3.addWidget(r_bt4)
 
-layout_ans1.addWidget(r_bt2)
-layout_ans1.addWidget(r_bt3)
+layout_ans1.addLayout(r_bt2)
+layout_ans1.addLayout(r_bt3)
 
 RadioGroupBox.setLayout(layout_ans1)
 
 AnsGroupBox = QGroupBox()
-lb_rosult = QLabel('')
+lb_result = QLabel('')
 lb_correct = QLabel('')
 
 layout_res = QVBoxLayout()
-layout_res.addWidget(lb_rosult, alignment=(Qt.Alignleft | Qt.AlignTor))
-layout_res.addWidget(lb_correct, alignment=Qt.AligHCenter, stretch=2)
+layout_res.addWidget(lb_result, alignment=(Qt.AlignLeft | Qt.AlignTop))
+layout_res.addWidget(lb_correct, alignment=Qt.AlignHCenter, stretch=2)
 
 AnsGroupBox.setLayout(layout_res)
 
@@ -71,9 +71,9 @@ layout_line1.addWidget(1)
 layout_line1.addWidget(btn_sleep)
 layout_line1.addWidget(box_minutes)
 
-layout_line1.addWidget(QLabel('хвилини'))
+#layout_line1.addWidget(QLabel('хвилини'))
 
-layout_line2.addWiget(lb_question, alignment=(Qt.AlignHC))
+#layout_line2.addWiget(lb_question, alignment=(Qt.AlignHC))
 
 
 # віджети, які треба буде розмістити:
