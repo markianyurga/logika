@@ -18,6 +18,17 @@ btn_add = QPushButton('Нове питання')
 btn_delete = QPushButton('Видалити питання')
 btn_start = QPushButton('Почати тренування')
 
+btn_delete.setStyleSheet("""
+                      color: red;
+                      font-size: 20px;
+                      """)
+
+btn_start.setStyleSheet("""
+                      color: red;
+                      font-size: 30px;
+                      background-color: cyan;
+                      """)
+
 main_col1 = QVBoxLayout()
 main_col1.addWidget(list_questions)
 main_col1.addWidget(btn_add)

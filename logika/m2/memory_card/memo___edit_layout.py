@@ -13,6 +13,21 @@ txt_Wrong1 = QLineEdit('')
 txt_Wrong2 = QLineEdit('')
 txt_Wrong3 = QLineEdit('')
 
+txt_Wrong1.setStyleSheet("""
+                      color: red;
+                      font-size: 40px;
+                      """)
+
+txt_Wrong2.setStyleSheet("""
+                      color: red;
+                      font-size: 40px;
+                      """)
+
+txt_Wrong3.setStyleSheet("""
+                      color: red;
+                      font-size: 40px;
+                      """)
+
 layout_form = QFormLayout()
 
 layout_form.addRow('Питання:', txt_Question)
