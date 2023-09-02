@@ -19,7 +19,12 @@ btn_delete = QPushButton('Видалити питання')
 btn_start = QPushButton('Почати тренування')
 
 btn_delete.setStyleSheet("""
-                      color: red;
+                      color: green;
+                      font-size: 20px;
+                      """)
+
+btn_delete.setStyleSheet("""
+                      color: green;
                       font-size: 20px;
                       """)
 

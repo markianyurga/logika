@@ -34,6 +34,25 @@ rbtn_2 = QRadioButton('')
 rbtn_3 = QRadioButton('')
 rbtn_4 = QRadioButton('')
 
+rbtn_4.setStyleSheet("""
+                      color: forestgreen;
+                      font-size: 30px;
+                      """)
+
+rbtn_3.setStyleSheet("""
+                      color: forestgreen;
+                      font-size: 30px;
+                      """)
+
+rbtn_2.setStyleSheet("""
+                      color: forestgreen;
+                      font-size: 30px;
+                      """)
+
+rbtn_1.setStyleSheet("""
+                      color: forestgreen;
+                      font-size: 30px;
+                      """)
 
 RadioGroup.addButton(rbtn_1)
 RadioGroup.addButton(rbtn_2)
@@ -86,6 +105,7 @@ layout_line1.addWidget(btn_Sleep)
 layout_line1.addWidget(box_Minutes)
 # нам не потрібна змінна для цього напису
 layout_line1.addWidget(QLabel('хвилин'))
+
 
 
 layout_line2.addWidget(lb_Question, alignment=(

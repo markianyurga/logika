@@ -24,6 +24,16 @@ win_main = QWidget()
 win_card = QWidget()
 
 
+win_card.setStyleSheet("""
+                      background-color: blue;
+                      font-size: 20px;
+                      """)
+
+win_main.setStyleSheet("""
+                      background-color: blue;
+                      font-size: 20px;
+                      """)
+
 # Тестові данні
 def testlist():
 
@@ -34,6 +44,12 @@ def testlist():
     frm = Question('Мишка', 'mouse', 'mouth', 'muse', 'museum')
     questions_listmodel.form_list.append(frm)
     frm = Question('Число', 'number', 'digit', 'amount', 'summary')
+    questions_listmodel.form_list.append(frm)
+    frm = Question('привіт', 'Hello', 'Hailo', 'tellen', 'Hello')
+    questions_listmodel.form_list.append(frm)
+    frm = Question('туалет', 'toilet', 'teilop', 'loclet', 'tociot')
+    questions_listmodel.form_list.append(frm)
+    frm = Question('де', 'where', 'whorе', 'whоrе', 'wfero')
     questions_listmodel.form_list.append(frm)
 
 # Функції для проведення тесту
