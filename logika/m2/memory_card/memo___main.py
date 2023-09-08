@@ -51,6 +51,10 @@ def testlist():
     questions_listmodel.form_list.append(frm)
     frm = Question('де', 'where', 'wortе', 'whurе', 'wfrro')
     questions_listmodel.form_list.append(frm)
+    frm = Question('when was minecraft created', '2009', '2003', '2002', '1009')
+    questions_listmodel.form_list.append(frm)
+    frm = Question('when standoff 2 ', '2017', '2013', '2007', '2011')
+    questions_listmodel.form_list.append(frm)
 
 # Функції для проведення тесту
 

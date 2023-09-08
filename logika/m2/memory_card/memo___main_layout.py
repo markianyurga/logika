@@ -24,14 +24,14 @@ btn_delete.setStyleSheet("""
                       """)
 
 btn_add.setStyleSheet("""
-                      color: green;
+                      color: orange;
                       font-size: 20px;
                       """)
 
 btn_start.setStyleSheet("""
-                      color: red;
+                      color: orange;
                       font-size: 30px;
-                      background-color: cyan;
+
                       """)
 
 main_col1 = QVBoxLayout()

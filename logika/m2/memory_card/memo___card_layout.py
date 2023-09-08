@@ -28,7 +28,7 @@ btn_OK.setStyleSheet("""
                       """)
 
 btn_Sleep.setStyleSheet("""
-                      color: green;
+                      color: orange;
                       font-size: 30px;
                       border: 2px solid green;
                       """)
