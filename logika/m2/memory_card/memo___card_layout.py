@@ -21,6 +21,23 @@ box_Minutes.setValue(30)
 btn_OK = QPushButton('Відповісти')  # кнопка відповіді
 lb_Question = QLabel('')  # текст питання
 
+btn_OK.setStyleSheet("""
+                      color: orange;
+                      font-size: 30px;
+                     border: 2px solid green;
+                      """)
+
+btn_Sleep.setStyleSheet("""
+                      color: green;
+                      font-size: 30px;
+                      border: 2px solid green;
+                      """)
+
+btn_Menu.setStyleSheet("""
+                      color: orange;
+                      font-size: 30px;
+                      border: 2px solid green;
+                      """)
 
 # Панель з варіантами:
 # група на екрані для перемикачів із відповідями
@@ -35,22 +52,22 @@ rbtn_3 = QRadioButton('')
 rbtn_4 = QRadioButton('')
 
 rbtn_4.setStyleSheet("""
-                      color: forestgreen;
+                      color: orange;
                       font-size: 30px;
                       """)
 
 rbtn_3.setStyleSheet("""
-                      color: forestgreen;
+                      color: orange;
                       font-size: 30px;
                       """)
 
 rbtn_2.setStyleSheet("""
-                      color: forestgreen;
+                      color: orange;
                       font-size: 30px;
                       """)
 
 rbtn_1.setStyleSheet("""
-                      color: forestgreen;
+                      color: orange;
                       font-size: 30px;
                       """)
 
@@ -106,7 +123,10 @@ layout_line1.addWidget(box_Minutes)
 # нам не потрібна змінна для цього напису
 layout_line1.addWidget(QLabel('хвилин'))
 
-
+box_Minutes.setStyleSheet("""
+                      color: orange;
+                      font-size: 30px;
+                      """)
 
 layout_line2.addWidget(lb_Question, alignment=(
     Qt.AlignHCenter | Qt.AlignVCenter))

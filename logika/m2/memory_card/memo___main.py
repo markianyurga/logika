@@ -49,7 +49,7 @@ def testlist():
     questions_listmodel.form_list.append(frm)
     frm = Question('туалет', 'toilet', 'teilop', 'loclet', 'tociot')
     questions_listmodel.form_list.append(frm)
-    frm = Question('де', 'where', 'whorе', 'whоrе', 'wfero')
+    frm = Question('де', 'where', 'wortе', 'whurе', 'wfrro')
     questions_listmodel.form_list.append(frm)
 
 # Функції для проведення тесту
