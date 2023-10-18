@@ -70,18 +70,28 @@ def search_teg():
                 
         btn_tag_search.setText("скинути пошук")  
          
+         
+         
         lst_note.clear()
         lst_note.addItems(notes)
         lst_tag.clear()
         fild_txt.clear()
     
-    
-    
     elif 'скинути тег' == btn_tag_search.text():
         btn_tag_search.setText('шукати тег')
 
+def show_notes():
+    key = lst_note.currentItem().text()
+    print(notes[key]['текст'])
+
+    fild_txt.setText(notes[key]['текст'])
+
 with open('notes.json', 'r', encoding='utf8') as file:
     notes = json.load(file)
+
+lst_note.addItems(notes)
+lst_note.itemClicked.connect(show_notes)
+
 
 windof.setLayout(loyout_notes)
 windof.show()
