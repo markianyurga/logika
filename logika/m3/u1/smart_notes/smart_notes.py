@@ -32,17 +32,27 @@ col2 = QVBoxLayout()
 loyout_notes.addLayout(col1, stretch=2)
 loyout_notes.addLayout(col2, stretch=1)
 col1.addWidget(fild_txt)
-col2.addWidget(lb_note )lst_note btn_note_cerelt btn_note_delete btn_note_sawe lb_tag fild_tag btn_tag_add btn_tag_unpin btn_tag_search)
-col2.addWidget(lst_note) btn_note_cerelt btn_note_delete btn_note_sawe lb_tag fild_tag btn_tag_add btn_tag_unpin btn_tag_search)
-col2.addWidget(btn_note_cerelt) btn_note_delete btn_note_sawe lb_tag fild_tag btn_tag_add btn_tag_unpin btn_tag_search)
+col2.addWidget(lb_note)
+col2.addWidget(lst_note)
+col2.addWidget(btn_note_cerelt)
+col2.addWidget(btn_note_delete)
+col2.addWidget(btn_note_sawe)
+col2.addWidget(lb_tag)
+col2.addWidget(lst_tag)
+col2.addWidget(fild_tag)
+col2.addWidget(btn_tag_add)
+col2.addWidget(btn_tag_unpin)
+col2.addWidget(btn_tag_search)
+
+fild_tag.setPlaceholderText('відіть тег')
 
 def add_teg():
     key = lst_note.currentItem().text()
-    tag = field_tag.text()
+    tag = fild_tag.text()
     
     lst_tag.addItem(tag)
     
-    saveToFile()
+ #  saveToFile()
 
 def del_teg():
     pass
@@ -70,7 +80,7 @@ def search_teg():
     elif 'скинути тег' == btn_tag_search.text():
         btn_tag_search.setText('шукати тег')
 
-with open('note.json', 'r', encoding='utf8') as file:
+with open('notes.json', 'r', encoding='utf8') as file:
     notes = json.load(file)
 
 windof.setLayout(loyout_notes)
