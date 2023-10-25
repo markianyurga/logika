@@ -7,6 +7,11 @@ from PyQt5.QtWidgets import (
 
 import json
 
+def writefile():
+    with open('notes.json', 'w', encoding='utf8') as file:
+        json.dump(notes, file, sort_keys=True, ensure_ascii=False,  indent=4)
+
+
 app = QApplication([])
 windof = QWidget()
 
@@ -85,12 +90,49 @@ def show_notes():
     print(notes[key]['текст'])
 
     fild_txt.setText(notes[key]['текст'])
+    
+    lst_tag.clear()
+    lst_tag.addItems(notes[key]['теги'])
+
+def add_note():
+    note_name, ok = QInputDialog.getText(windof, "додаваня замітки", "ведіть замітку")
+    
+    if ok and note_name:
+        notes[note_name] =  {"текст":"", "теги":[]}
+        lst_note.addItem(note_name)
+
+def delete_note():
+    pass
+
+def save_note():
+    key = lst_note.currentItem().text()
+    notes[key]['текст'] = fild_txt.toPlainText()
+    writefile()
+      
+def add_tag():
+    pass
+
+def unpin_tag():
+    pass
+
+def search_tag():
+    pass
 
 with open('notes.json', 'r', encoding='utf8') as file:
     notes = json.load(file)
 
 lst_note.addItems(notes)
 lst_note.itemClicked.connect(show_notes)
+
+btn_note_cerelt.clicked.connect(add_note)
+btn_note_delete.clicked.connect(delete_note)
+btn_note_sawe.clicked.connect(save_note)
+btn_tag_add.clicked.connect(add_tag)
+btn_tag_unpin.clicked.connect(unpin_tag)
+btn_tag_search.clicked.connect(search_tag)
+
+
+
 
 
 windof.setLayout(loyout_notes)
