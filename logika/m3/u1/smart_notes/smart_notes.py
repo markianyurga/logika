@@ -51,39 +51,7 @@ col2.addWidget(btn_tag_search)
 
 fild_tag.setPlaceholderText('відіть тег')
 
-def add_teg():
-    key = lst_note.currentItem().text()
-    tag = fild_tag.text()
-    
-    lst_tag.addItem(tag)
-    
- #  saveToFile()
 
-def del_teg():
-    pass
-
-def search_teg():
-    tag = fild_tag.text()
-    
-    if 'шукати за тегом' ==btn_tag_search.text():
-        filtered_notes = {}
-        
-        for key in notes:
-            if tag in notes[key]['теги']:
-                filtered_notes[key] = notes[key]
-                
-                
-        btn_tag_search.setText("скинути пошук")  
-         
-         
-         
-        lst_note.clear()
-        lst_note.addItems(notes)
-        lst_tag.clear()
-        fild_txt.clear()
-    
-    elif 'скинути тег' == btn_tag_search.text():
-        btn_tag_search.setText('шукати тег')
 
 def show_notes():
     key = lst_note.currentItem().text()
@@ -102,7 +70,13 @@ def add_note():
         lst_note.addItem(note_name)
 
 def delete_note():
-    pass
+    key = lst_note.currentItem().text()
+    del notes[key]
+    writefile()
+    lst_note.clear()
+    lst_note.addItems(notes)
+    lst_tag.clear()
+    
 
 def save_note():
     key = lst_note.currentItem().text()
@@ -110,13 +84,50 @@ def save_note():
     writefile()
       
 def add_tag():
-    pass
+    key = lst_note.currentItem().text()
+    teg = fild_tag.text()
+    notes [key]["теги"].append(teg)
+    lst_tag.addItem(teg)
+    fild_tag.clear()
+    writefile()
 
 def unpin_tag():
-    pass
-
+    key = lst_note.currentItem().text()
+    teg = lst_tag.currentItem().text()
+    notes [key]["теги"].remove(teg)
+    lst_tag.clear()
+    lst_tag.addItems(notes [key]["теги"])
+    writefile()
+    
 def search_tag():
-    pass
+    teg = fild_tag.text()
+    
+    if 'шукати за тегом' == btn_tag_search.text():
+        print(teg)
+       
+        filter_notes =  []
+        
+        for key in  notes:
+            if teg in notes[key]["теги"]:
+                filter_notes.append(key)
+                
+        btn_tag_search.setText("скинути пошук")
+        
+        lst_note.clear()
+        lst_tag.clear()
+        fild_tag.clear()
+        fild_txt.clear()
+        
+        lst_note.addItems(filter_notes)
+    else:
+        btn_tag_search.setText("шукати за тегом")
+        
+        lst_note.clear()
+        lst_tag.clear()
+        fild_tag.clear()
+        fild_txt.clear()
+        
+        lst_note.addItems(notes)
 
 with open('notes.json', 'r', encoding='utf8') as file:
     notes = json.load(file)
@@ -130,10 +141,6 @@ btn_note_sawe.clicked.connect(save_note)
 btn_tag_add.clicked.connect(add_tag)
 btn_tag_unpin.clicked.connect(unpin_tag)
 btn_tag_search.clicked.connect(search_tag)
-
-
-
-
 
 windof.setLayout(loyout_notes)
 windof.show()
