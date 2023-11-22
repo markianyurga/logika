@@ -42,7 +42,33 @@ col2.addWidget(lb_pic)
 col2.addLayout(row)
     
 def showfaulneumlest():
+    global workdir
     workdir = QFileDialog.getExistingDirectory()
+    fals = os.listdir(workdir)
+    
+    filnemes = filter(fals)
+    lst_fils.clear()
+    lst_fils.addItems(filnemes)
+    
+def filter (fals):
+    exts = ['jpg', 'png', 'bmp', 'jpeg', 'gif']
+    img_file = []
+    
+    for i in fals:
+        if i.split(".")[1] in exts:
+            img_file.append(i)
+    return img_file
+
+class ImageProcessor():
+    def __init__(self):
+        self.original = None
+        self.filename = None
+        self.save_dir = "Modified/"
+    
+    def lotimege (self, filename):
+        self.filename = filename
+        foll_past = os.path.join(workdir, filename)
+        self.original = Image.open(foll_past)
     
 btn_papka.clicked.connect(showfaulneumlest)
 
