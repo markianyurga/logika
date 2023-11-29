@@ -65,11 +65,37 @@ class ImageProcessor():
         self.filename = None
         self.save_dir = "Modified/"
     
-    def lotimege (self, filename):
+    def lotimege(self, filename):
         self.filename = filename
         foll_past = os.path.join(workdir, filename)
         self.original = Image.open(foll_past)
-    
+        
+    def showimeg(self, ful_path):
+        lb_pic.hide()
+        pixmapimage = QPixmap(ful_path)
+        w, h = lb_pic.width(),lb_pic.height()
+        
+        pixmapimage = pixmapimage.scaled(w, h, Qt.KeepAspectRatio)
+        
+        lb_pic.setPixmap(pixmapimage)
+        lb_pic.show()
+        
+    def saveandshowImege(self):
+        path = os.path.join(workdir, self.save_dir)
+        os.mkdir(path)
+        Image_path = os.path.join(path,self.filename)
+        self.original.save(Image_path)
+        self.showimeg(Image_path)
+
+def  showchosenItem():
+    filename = lst_fils.currentItem().text()
+    workimage.lotimege(filename)
+    foll_past = os.path.join(workdir, filename)
+    workimage.showimeg(foll_past)
+
+workimage = ImageProcessor()
+
+lst_fils.itemClicked.connect(showchosenItem)
 btn_papka.clicked.connect(showfaulneumlest)
 
 window.setLayout(leut)
