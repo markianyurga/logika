@@ -55,7 +55,7 @@ def filter (fals):
     img_file = []
     
     for i in fals:
-        if i.split(".")[1] in exts:
+        if i.split(".")[-1] in exts:
             img_file.append(i)
     return img_file
 
@@ -82,11 +82,33 @@ class ImageProcessor():
         
     def saveandshowImege(self):
         path = os.path.join(workdir, self.save_dir)
-        os.mkdir(path)
+        if not (os.path.exists(path) or os.path.isdir(path)):
+            os.mkdir(path)
         Image_path = os.path.join(path,self.filename)
         self.original.save(Image_path)
         self.showimeg(Image_path)
-
+        
+    def do_bw(self):
+        self.original = self.original.convert('L')
+        self.saveandshowImege()
+        
+    def do_sharp(self):
+        self.original = self.original.filter(ImageFilter.SHARPEN)
+        self.saveandshowImege()
+    
+    def do_left(self):
+        self.original = self.original.transpose(Image.ROTATE_90)
+        self.saveandshowImege()
+    
+    def do_right(self):
+        self.original = self.original.transpose(Image.ROTATE_270)
+        self.saveandshowImege()
+    
+    def do_flip(self):
+        self.original = self.original.transpose(Image.FLIP_LEFT_RIGHT)
+        self.saveandshowImege()
+    
+    
 def  showchosenItem():
     filename = lst_fils.currentItem().text()
     workimage.lotimege(filename)
@@ -95,6 +117,16 @@ def  showchosenItem():
 
 workimage = ImageProcessor()
 
+btn_bw.clicked.connect(workimage.do_bw)
+ 
+btn_vlivo.clicked.connect(workimage.do_left)
+ 
+btn_vpravo.clicked.connect(workimage.do_right)
+ 
+btn_rizkicnm.clicked.connect(workimage.do_sharp)
+ 
+btn_dzerkalo.clicked.connect(workimage.do_flip)
+ 
 lst_fils.itemClicked.connect(showchosenItem)
 btn_papka.clicked.connect(showfaulneumlest)
 

@@ -22,4 +22,4 @@ with Image.open("1.jpg" ) as original :
  #   print(original.size)
   #  print(original.format)
    # print(original.mode)
-    
+  
