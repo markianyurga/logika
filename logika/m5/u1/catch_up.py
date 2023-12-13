@@ -1,6 +1,7 @@
 from pygame import *
 
 #створи вікно гри
+window = display.set_mode([750, 550])
 
 #задай фон сцени
 
