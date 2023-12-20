@@ -10,12 +10,12 @@ window = display.set_mode([750, 550])
 
 background = transform.scale(image.load('background.png'), [750, 550])
 #створи 2 спрайти та розмісти їх на сцені
-sprite1 = transform.scale(image.load('sprite1.png'), [82, 90])
+sprite1 = transform.scale(image.load('sprite1.png'), [82, 80])
 x1 = 50
 y1 = 450
 
-sprite2 = transform.scale(image.load('sprite2.png'), [80, 80])
-x2 = 50
+sprite2 = transform.scale(image.load('sprite2.png'), [80, 95])
+x2 = 650
 y2 = 450
 
 
