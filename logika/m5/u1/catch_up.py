@@ -14,7 +14,7 @@ sprite1 = transform.scale(image.load('sprite1.png'), [82, 80])
 x1 = 50
 y1 = 450
 
-sprite2 = transform.scale(image.load('sprite2.png'), [80, 95])
+sprite2 = transform.scale(image.load('sprite2.png'), [82, 80])
 x2 = 650
 y2 = 450
 
